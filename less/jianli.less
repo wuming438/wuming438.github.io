@@ -24,23 +24,50 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 ul, ol { list-style:none; } 
 a { text-decoration:none; } 
 a:hover { text-decoration:underline; } 
-body,html {width: 100%; height: 100%;}
+body,html {width: 100%; height: 100%; overflow: hidden;}
+
+
+@keyframes mainmove {
+    0% {
+        left: 0%;    
+    }
+
+    100% {
+        left: 60%;           
+    }
+}
+
+@keyframes fanmove {
+    0% {
+        left: 60%;    
+    }
+
+    100% {
+        left: 0%;           
+    }
+}
+.mainmove {
+    animation: mainmove 0.5s ease forwards;
+}
+
+.fanmove {
+    animation: fanmove 0.5s ease forwards;
+}
 
 
 #main {
 
     width: 100%;
     height: 100%;
+    position: relative;
 
     .mysilde {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        // left: 0;
-        z-index: 99;
         width: 60%;
         height: 100%;
-        display: none;
+        position: absolute;
+        top: 0;
+        left: -60%;
+        z-index: -10;
         background-color: #261e31;
 
         .head {
@@ -117,8 +144,16 @@ body,html {width: 100%; height: 100%;}
             // background-color: red;
             
             .left {
-                padding-left: 15px;
                 float: left;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                >i {
+                    padding: 0px 15px 0 15px;
+                    
+                }
             }
             .right {
                 width: 60px;
@@ -128,6 +163,7 @@ body,html {width: 100%; height: 100%;}
         }
 
         .down {
+            height: 8%;
             position: absolute;
             bottom: 0.1rem;
             width: 100%;
@@ -138,13 +174,15 @@ body,html {width: 100%; height: 100%;}
         .two>p,
         .three>p,
         .four>p {
-            margin: 0.1rem auto 0.2rem auto;
+            margin: 0 auto;
             width: 3rem;
-            height: 1rem;
-            line-height: 1rem;
+            height: 4%;
+            padding: 2%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 0.3rem;
             border: 1px solid #179cdc;
-            text-align: center;
             color: #179cdc;
             font-size: 0.4rem;
         }
@@ -182,7 +220,6 @@ body,html {width: 100%; height: 100%;}
         }
 
         .two {
-            position: relative;
             background-color: #242424;
 
             .top .left {
@@ -193,34 +230,41 @@ body,html {width: 100%; height: 100%;}
                 width: 100%;
                 height: 40%;
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-content: space-around;
-                box-sizing: border-box;
-                padding: 0 1.5rem 0 1.5rem;
+                flex-direction: column;
                 
                 >div {
-                    letter-spacing: 1px;
-                    text-align: center;
-                    font-size: 0.4rem;
-                    width: 1.8rem;
-                    height: 1.8rem;
-                    line-height: 1.8rem;
-                    color: #fff;
-                    border-radius: 50%;
-                    // margin-right: 0.4rem;
-                    border: 1px solid #33ffb5;
+                    flex: 1;
+                    width: 70%;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    >div {
+                        letter-spacing: 1px;
+                        text-align: center;
+                        font-size: 0.4rem;
+                        width: 1.8rem;
+                        height: 1.8rem;
+                        line-height: 1.8rem;
+                        color: #fff;
+                        border-radius: 50%;
+                        // margin-right: 0.4rem;
+                        border: 1px solid #33ffb5;
+
+                    }
                 }
             }
 
             .xia {
-                margin-top: 0.2rem;
                 letter-spacing: 2px;
                 color: #33ffb5;
-                width: 100%;
+                height: 35%;
                 text-align: center;
                 font-size: 0.3rem;
-                line-height: 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                
             }
 
             .down {
@@ -239,23 +283,38 @@ body,html {width: 100%; height: 100%;}
                 color: #179cdc;
             }
 
-
+            .swiper-container-horizontal > .swiper-pagination-bullets {
+                bottom: 0%;
+            }
             .swiper-container {
-                margin: 0.5rem auto;
+                margin: 8% auto 0 auto;
                 width: 80%;
                 height: 70%;
 
                 .swiper-slide {
                     width: 100%;
-                    background-color: #191c21;
-                    img {
+                    display: flex;
+                    flex-direction: column;
+
+                    >div {
                         width: 100%;
+                        >img {
+                            width: 100%;
+                        }
                     }
-                    .content>p {
-                        color: #179cdc;
-                        line-height: 1.2rem;
-                        font-size: 0.4rem;
+                    .content {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        padding-bottom: 10%;
+                        >p {
+                            color: #179cdc;
+                            line-height: 1.2rem;
+                            font-size: 0.4rem;
+                        }
                     }
+                
                 }
 
             }
@@ -265,8 +324,9 @@ body,html {width: 100%; height: 100%;}
             background-color: #261e31;
 
             .content {
+                margin: 0 auto;
                 width: 80%;
-                margin: 1rem auto;
+                height: 70%;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
@@ -276,7 +336,6 @@ body,html {width: 100%; height: 100%;}
                     font-size: 0.4rem;
                     color: #f66f6c;
                     width: 45%;
-                    margin-bottom: 0.7rem;
 
                     img {
                         width: 100%;
@@ -293,7 +352,8 @@ body,html {width: 100%; height: 100%;}
             >.content {
                 position: relative;
                 width: 100%;
-                margin-bottom: 10px;
+                height: 30%;
+                overflow: hidden;
                 >img {
                     width: 100%;
                 }
@@ -308,21 +368,31 @@ body,html {width: 100%; height: 100%;}
                 }
             }
 
-            >p {
-                letter-spacing: 2px;
-                color: #f66f6c;
-                width: 100%;
-                font-size: 0.4rem;
-                text-align: center;
-                height: 1.5rem;
-                line-height: 1.2rem;
+            .biaoyu {
+                height: 35%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                >p {
+                    letter-spacing: 2px;
+                    color: #f66f6c;
+                    width: 100%;
+                    font-size: 0.4rem;
+                    text-align: center;
+                    height: 1.5rem;
+                    line-height: 1.2rem;
+                }
             }
 
             .code {
-                margin: 20px auto;
-                width: 30%;
+                // position: absolute;
+                bottom: 0;
+                height: 25%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 >img {
-                    width: 100%;
+                    height: 70%;
                 }
             }
 

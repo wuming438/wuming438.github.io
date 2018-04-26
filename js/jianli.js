@@ -19,7 +19,7 @@ $(function () {
         },
     });
 
-
+    $("#main").off("touchmove")
     $(".top>.left").click(function(){
 
         // $(".mysilde").css("display", "block").animate({
@@ -27,18 +27,23 @@ $(function () {
         // }, 200,function(){
         //     $(".flag").addClass("ying");
         // })
+        $("#main").removeClass("fanmove")
+        $(".flag").addClass("ying")
+        $("#main").addClass("mainmove")
+ 
+    })
 
-        if($("#main").hasClass("mainmove")){
-            $("#main").removeClass("mainmove")
-            $("#main").addClass("fanmove")  
-        }else {
-            $("#main").removeClass("fanmove")
-            $("#main").addClass("mainmove")
-            
-        }
+    $(".flag").click(function(){
 
-
-    
+        // $(".mysilde").css("display", "block").animate({
+        //     left: 0,
+        // }, 200,function(){
+        //     $(".flag").addClass("ying");
+        // })
+        $(".flag").removeClass("ying")
+        $("#main").addClass("fanmove")
+        $("#main").removClass("mainmove")
+ 
     })
 
 

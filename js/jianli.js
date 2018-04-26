@@ -34,8 +34,6 @@ $(function () {
     })
 
     $(".flag").click(function(){
-        console.log("6");
-        
 
         // $(".mysilde").css("display", "block").animate({
         //     left: 0,

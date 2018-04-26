@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6{ font-size:100%; }
 ul, ol { list-style:none; } 
 a { text-decoration:none; } 
 a:hover { text-decoration:underline; } 
-body,html {width: 100%; height: 100%;}
+body,html {width: 100%; height: 100%; overflow: hidden;}
 
 
 @keyframes mainmove {
@@ -46,6 +46,30 @@ body,html {width: 100%; height: 100%;}
         left: 0%;           
     }
 }
+
+@keyframes sidlemove {
+    0% {
+        left: -30%;    
+    }
+
+    100% {
+        left: 0%;           
+    }
+}
+
+@keyframes fansidlemove {
+    0% {
+        left: 0%;    
+    }
+
+    99% {
+        opacity: 1;           
+    }
+    100% {
+        left: -30%;
+        opacity: 0;           
+    }
+}
 .mainmove {
     animation: mainmove 0.3s ease forwards;
 }
@@ -53,62 +77,70 @@ body,html {width: 100%; height: 100%;}
 .fanmove {
     animation: fanmove 0.3s ease forwards;
 }
+.sidlemove {
+    animation: sidlemove 0.3s ease forwards;
+    
+}
+.fansidlemove {
+    animation: fansidlemove 0.3s ease forwards;
+    
+}
+
+.mysilde {
+    width: 61%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -30%;
+    // display: none;
+    background-color: #261e31;
+
+    .head {
+
+        height: 30%;
+        background-size: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >img {
+            height: 50%;
+            border-radius: 100%;    
+        }
+    }
+    >ul {
+        // margin-top: 10%;
+        width: 100%;
+        height: 70%;
+        // background-color: blue;
+        display: flex;
+        flex-direction: column;
+
+        
+        li {
+            flex: 1;
+            color: #f66f6c;
+            // border-bottom: 1px solid rgb(27, 27, 27);
+            display: flex;
+            align-items: center;
+
+            i {
+                width: 10%;
+                font-size: 0.5rem;
+                margin: 0 0.3rem 0 0.8rem;
+            }
+
+            span {
+                letter-spacing: 2px;
+                font-size: 0.45rem;
+            }
+        }
+    }
+}
 
 #main {
     width: 100%;
     height: 100%;
     position: relative;
-
-    .mysilde {
-        width: 60%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: -59%;
-        background-color: #261e31;
-
-        .head {
-
-            height: 30%;
-            background-size: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            >img {
-                height: 50%;
-                border-radius: 100%;    
-            }
-        }
-        >ul {
-            // margin-top: 10%;
-            width: 100%;
-            height: 70%;
-            // background-color: blue;
-            display: flex;
-            flex-direction: column;
-
-            
-            li {
-                flex: 1;
-                color: #f66f6c;
-                // border-bottom: 1px solid rgb(27, 27, 27);
-                display: flex;
-                align-items: center;
-
-                i {
-                    width: 10%;
-                    font-size: 0.5rem;
-                    margin: 0 0.3rem 0 0.8rem;
-                }
-
-                span {
-                    letter-spacing: 2px;
-                    font-size: 0.45rem;
-                }
-            }
-        }
-    }
-
 
     .flag {
         position: absolute;

@@ -19,33 +19,34 @@ $(function () {
         },
     });
 
-    $("#main").off("touchmove")
+
     $(".top>.left").click(function(){
 
         // $(".mysilde").css("display", "block").animate({
         //     left: 0,
         // }, 200,function(){
         //     $(".flag").addClass("ying");
-        // })
-        $("#main").removeClass("fanmove")
+        // })      
+        $("#main").removeClass("fanmove").addClass("mainmove")
         $(".flag").addClass("ying")
-        $("#main").addClass("mainmove")
+        $(".mysilde").removeClass("fansidlemove").addClass("sidlemove")
  
     })
 
     $(".flag").click(function(){
+        console.log("6");
+        
 
         // $(".mysilde").css("display", "block").animate({
         //     left: 0,
         // }, 200,function(){
         //     $(".flag").addClass("ying");
         // })
+        $("#main").removeClass("mainmove").addClass("fanmove")
         $(".flag").removeClass("ying")
-        $("#main").addClass("fanmove")
-        $("#main").removClass("mainmove")
+        $(".mysilde").removeClass("sidlemove").addClass("fansidlemove")
  
     })
-
 
 
     // $("#main").click(function(e){
